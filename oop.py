@@ -101,27 +101,27 @@ class Account():
         return time;
 
     def __init__(self,name, balance):
-        self.name = name
-        self.balance = balance
-        self.trans_list = []
+        self._name = name   # programers convention (to treat name as private variable)
+        self.__balance = balance    # name mangling, python will not allow name mangling
+        self.trans_list = [(balance, Account.current_time())]
         print(f'Account created for {name} with balance {balance}')
 
     def deposit(self, amount):
         if amount > 0:
-            self.balance += amount
+            self.__balance += amount
         self.show()
         self.trans_list.append((amount, Account.current_time()))
 
     def withdraw(self, amount):
-        if 0 < amount <= self.balance:
-            self.balance -= amount
+        if 0 < amount <= self.__balance:
+            self.__balance -= amount
             self.trans_list.append((amount*-1, Account.current_time()))
         else:
-            print(f'{self.name} you have not enough balance')
+            print(f'{self._name} you have not enough balance')
         self.show()
 
     def show(self):
-        print(f'The balance of {self.name} is {self.balance}')
+        print(f'The balance of {self._name} is {self.__balance}')
 
     def show_trans(self):
         for amount, date in self.trans_list:
@@ -131,7 +131,7 @@ class Account():
             else:
                 type = 'Withdraw'
             
-            print(f'Amount {amount} dollars, {type} from/to {self.name} account on date {date}.')
+            print(f'Amount {amount} dollars, {type} from/to {self._name} account on date {date}.')
 
 
 
@@ -141,6 +141,16 @@ zahir_account.deposit(30)
 
 zahir_account.withdraw(10)
 zahir_account.show_trans()
+
+print(zahir_account.__dict__)
+
+print('x'*20)
+
+# Magic/dunder methods (double leading and trailing underscores)
+
+print(dir(zahir_account))  # <- Will print all the dunder methods (dunder methods are used internally by python)
+
+
 
 
 
