@@ -1,14 +1,36 @@
-a = 10
-b = 20
+from player import Player
+from enemy import Enemy
 
-print(a+b)
-print(a-b)
-print(a*b)
-print(a/b)
+zain = Player('zain')
 
-print(a//b)
+zain.lives -= 1
+print(zain)
+zain.lives -= 1
+print(zain)
+zain.lives -= 1
+print(zain)
 
-print(a**b)
+zain.level += 1
+print(zain)
+zain.level += 2
+print(zain)
 
-print(b%a)
+zain.level -= 3
+print(zain)
 
+zain.level -= 2
+print(zain)
+
+print('x'*20)
+print('----------Enemy damage Work-------')
+racoon = Enemy('Racoon')
+print(racoon)
+
+racoon.take_damage(2)
+print(racoon)
+
+racoon.take_damage(2)
+print(racoon)
+
+racoon.take_damage(2)
+print(racoon)
