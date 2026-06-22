@@ -19,3 +19,13 @@ class Enemy:
 
     def __str__(self):
         return f'Name: {self.name}, Hit Points: {self.hit_points}, Lives: {self.lives}'
+
+
+class Bone_Snacher(Enemy):
+    def __init__(self,name, hit_points=4, lives=1):
+        super().__init__(name=name, hit_points=hit_points, lives=lives)
+
+    
+    def snach(self):
+        print(f'{self.name} is snaching your bones!')
+        

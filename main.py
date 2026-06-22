@@ -1,5 +1,5 @@
 from player import Player
-from enemy import Enemy
+from enemy import Enemy, Bone_Snacher
 
 zain = Player('zain')
 
@@ -34,3 +34,14 @@ print(racoon)
 
 racoon.take_damage(2)
 print(racoon)
+
+print('x'*20)
+print('----------Inheritance Work-------')
+
+
+# Method overloading (changed method in the child class)
+ugly_snacher = Bone_Snacher('ugly snacher',18,4)
+print(ugly_snacher)
+ugly_snacher.snach()
+
+# 
