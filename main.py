@@ -1,5 +1,5 @@
 from player import Player
-from enemy import Enemy, Bone_Snacher, Blood_Drinker
+from enemy import Enemy, Bone_Snacher, Blood_Drinker, king_Vampire
 
 zain = Player('zain')
 
@@ -61,3 +61,11 @@ while vampire.lives:
     vampire.take_damage(2)
 
 print(vampire)
+
+print('---------------------Another Enemy class in action-----------------')
+
+king_vampire = king_Vampire('King Vampire', 30, 4)
+print(king_vampire)
+while king_vampire.lives:
+    king_vampire.take_damage(3)
+print(king_vampire)

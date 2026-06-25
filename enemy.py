@@ -53,3 +53,12 @@ class Blood_Drinker(Enemy):
         if not self.dodge():
             super().take_damage(damage)
         
+
+class king_Vampire(Blood_Drinker):
+    def __init__(self, name, hit_points=30, lives=4):
+        super().__init__(name=name, hit_points=hit_points, lives=lives)
+
+    def take_damage(self, damage):
+        print(f"{self.name} was shoot with damage {damage}")
+        super().take_damage(damage//3)
+
