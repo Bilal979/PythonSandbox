@@ -17,7 +17,12 @@ def test_normal_discount():
     assert result == 80
 
 def test_zero_discount():
+    #Arrange
+
+    #Act
     result = apply_discount(100, 0)
+
+    #Assert
     assert result == 100
 
 def test_edge_case_discount():
